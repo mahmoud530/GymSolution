@@ -1,8 +1,9 @@
-﻿namespace GymMVC.Models
+﻿using GymManagementSystem.DAL.Models;
+
+namespace GymMVC.Models
 {
-    public class Plan
+    public class Plan : BaseEntity
     {
-        public int Id { get; set; }
 
         public string Name { get; set; } = default!;
 
@@ -14,8 +15,6 @@
 
         public bool IsActive { get; set; }
 
-        public DateTime CreatedAt { get; set; }
-
-        public DateTime UpdatedAt { get; set; }
+      
     }
 }
