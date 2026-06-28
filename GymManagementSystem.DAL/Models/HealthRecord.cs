@@ -13,6 +13,14 @@ namespace GymManagementSystem.DAL.Models
         public string BloodType { get; set; } 
         public string? Note { get; set; }
 
-//updatedAt of base entity => LastUpdated elly fy table el HealthRecord
+        #region relationships 
+        //3l4an de one katbna esmha 3ady lakn lw many bst5dm (ICollection)
+        public Member Member { get; set; } = default!;
+        public int MemberId { get; set; } //da el fk 
+
+
+        #endregion
+
+        //updatedAt of base entity => LastUpdated elly fy table el HealthRecord
     }
 }

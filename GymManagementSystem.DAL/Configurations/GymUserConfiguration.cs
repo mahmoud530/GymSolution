@@ -40,10 +40,10 @@ namespace GymManagementSystem.DAL.Configurations
             });
             //addres Owned Entity Type
             //hadelo variable or expression (another paramter) elly hwa => 3l4an lw 3ayez a3dl 3aleh 
-            builder.OwnsOne(X=> X.Address ,
+            builder.OwnsOne(X => X.Address,
                 address =>
-                { 
-                    address.Property(X=> X.Street )
+                {
+                    address.Property(X => X.Street)
                     .HasColumnName("Street")
                     .HasColumnType("varchar")
                     .HasMaxLength(30);
@@ -53,7 +53,7 @@ namespace GymManagementSystem.DAL.Configurations
                    .HasColumnType("varchar")
                    .HasMaxLength(30);
                 }
-            )
+            );
 
 
         }

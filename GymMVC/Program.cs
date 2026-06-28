@@ -2,7 +2,6 @@ using GymManagementSystem.DAL.Repositories.Classes;
 using GymManagementSystem.DAL.Repositories.Interfaces;
 using GymMVC.DBContext;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 
 namespace GymMVC
 {
@@ -16,12 +15,14 @@ namespace GymMVC
             builder.Services.AddControllersWithViews();
 
             //Register DB context
-            builder.Services.AddDbContext<GymDbContext>(Options => { Options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            builder.Services.AddDbContext<GymDbContext>(Options =>
+            {
+                Options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            }); // <-- FIXED: Added missing closing parenthesis and semicolon here
 
             //Register DI
             //EF core will be create object from Db context Auto insted of creating it manually in the repository class (new)
             builder.Services.AddScoped<IPlanRepository, PlanRepository>();
-
 
             var app = builder.Build();
 
@@ -45,6 +46,6 @@ namespace GymMVC
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
-            }
+        }
     }
 }

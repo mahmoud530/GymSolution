@@ -14,7 +14,11 @@ namespace GymMVC.Models
         public int DurationDays { get; set; }
 
         public bool IsActive { get; set; }
+        #region relations
+        public ICollection<Membership> Members { get; set; } = default!;
 
-      
+        #endregion
+
+
     }
 }

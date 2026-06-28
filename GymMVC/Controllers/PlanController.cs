@@ -10,12 +10,12 @@ namespace GymMVC.Controllers
     {
         
         //field by3br 3n el class da gwah kol 7aga w el connection 
-        private readonly IPlanRepository _planRepository ;
+        private readonly IPlanRepository _planRepository;
 
         public PlanController(IPlanRepository planRepository)
 
         {
-           _planRepository = planRepository;
+            _planRepository = planRepository;
         }
 
 
