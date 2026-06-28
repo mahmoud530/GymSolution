@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace GymManagementSystem.DAL.Models
 {
     //da msh entity da helper ba7ot feh el 7agat ek common bs 
-    public class GymUser : BaseEntity
+    public abstract class GymUser : BaseEntity
     {
         public string Name { get; set; } = default!;
         public string Email { get; set; } = default!;

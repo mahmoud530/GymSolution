@@ -1,3 +1,5 @@
+using GymManagementSystem.BLL.Services.Classes;
+using GymManagementSystem.BLL.Services.Interfaces;
 using GymManagementSystem.DAL.Repositories.Classes;
 using GymManagementSystem.DAL.Repositories.Interfaces;
 using GymMVC.DBContext;
@@ -22,7 +24,9 @@ namespace GymMVC
 
             //Register DI
             //EF core will be create object from Db context Auto insted of creating it manually in the repository class (new)
-            builder.Services.AddScoped<IPlanRepository, PlanRepository>();
+            builder.Services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
+            builder.Services.AddScoped<IMemberService , MemberService>();
+
 
             var app = builder.Build();
 

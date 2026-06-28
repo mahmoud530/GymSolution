@@ -1,6 +1,7 @@
 ﻿using GymManagementSystem.DAL.Repositories.Classes;
 using GymManagementSystem.DAL.Repositories.Interfaces;
 using GymMVC.DBContext;
+using GymMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,9 +11,9 @@ namespace GymMVC.Controllers
     {
         
         //field by3br 3n el class da gwah kol 7aga w el connection 
-        private readonly IPlanRepository _planRepository;
+        private readonly IGenericRepository<Plan> _planRepository;
 
-        public PlanController(IPlanRepository planRepository)
+        public PlanController(IGenericRepository<Plan> planRepository)
 
         {
             _planRepository = planRepository;
@@ -22,7 +23,7 @@ namespace GymMVC.Controllers
         // GET: url (plan/Index)
         public async Task<IActionResult> Index(CancellationToken ct)
         {
-            var plans = await _planRepository.GetAllPlansAsync(ct : ct  ); //pass by name 
+            var plans = await _planRepository.GetAllAsync(ct : ct  ); //pass by name 
             return View(plans);
         }
 
